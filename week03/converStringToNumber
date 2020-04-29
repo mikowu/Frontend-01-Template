@@ -1,0 +1,34 @@
+function converStringToNumber(string, x) {
+        if (arguments.length < 2)
+            x = 10;
+
+        var chars = string.split('');
+        var number = 0;
+        var i = 0;
+        var arr = ["a", "b", "c", "d", "e", "f"];
+        while (i < chars.length && chars[i] != '.') {
+            number = number * x;
+            var char = chars[i];
+            var ind = arr.indexOf(char.toLowerCase());
+            if (ind != -1 && x === 16) {
+                char = String(ind);
+                number += 10;
+                number += (char.codePointAt(0) - '0'.codePointAt(0));
+            } else {
+                number += char.codePointAt(0) - '0'.codePointAt(0);
+            }
+            i++;
+        }
+        if (chars[i] === '.') i++;
+
+        var fraction = 1;
+        while (i < chars.length) {
+            fraction = fraction / x;
+            number += (chars[i].codePointAt(0) - '0'.codePointAt(0)) * fraction;
+            i++;
+        }
+        return number;
+    }
+    console.log(converStringToNumber("100", 2))//4
+    console.log(converStringToNumber("a", 16))//10
+  
