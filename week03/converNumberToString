@@ -1,0 +1,21 @@
+  function converNumberToString(number, x) {
+        var integer = Math.floor(number)
+        var fraction = number - integer;
+        var string = '';
+        while (integer > 0) {
+            string = String(integer % x) + string;
+            integer = Math.floor(integer / x);
+        }
+        if (fraction > 0 && fraction < 1) string += '.';
+        var i = 1;
+        while (fraction > 0 && fraction < 1 && i < 8) {
+            var fraction_ = fraction * x;
+            var integer_ = Math.floor(fraction_);
+            fraction = fraction_ - integer_;
+            string += String(integer_);
+            i++;
+        }
+        return string;
+    }
+    console.log(converNumberToString(100.02, 2))//1100100.0000010
+    console.log(converNumberToString(100.02, 8))//144.0121727
