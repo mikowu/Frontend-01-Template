@@ -1,1 +1,19 @@
-# 每周总结可以写在这里
+##### css
+- At-rules
+    - @charset
+    - @import
+    - @media
+    - @page
+    - @namespace
+    - @supports
+    - @document
+    - @font-face
+    - @keyframes
+    - @viewport
+    - @counter-style
+
+- rule
+    - Selector
+    - Declaration
+       - Key:property variable
+       - Value
